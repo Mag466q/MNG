@@ -1,0 +1,3 @@
+(?<ublisher_location>[[:alpha:]]+\s+:)
+(?<publisher_name>([[:alpha:]]+\s)*[[:alpha:]]+,)
+(?<publisher_year>\d\d\d\d)
