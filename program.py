@@ -22,29 +22,35 @@ def re_publisher_location(row:str):
     buff = re.search("(?P<publisher_location>[a-zA-Z-żéźćńółęąśŻŹĆĄŚĘŁÓŃ]+\s)", row)
     publisher_location.append(fill_data(buff))
 
+
 def re_publisher_name(row:str):
     buff = re.search("(?P<publisher_name>([a-zA-Z-żéźćńółęąśŻŹĆĄŚĘŁÓŃ]+\s)*([(]([A-Z])*[)]|[a-zA-Z-éżźćńółęąśŻŹĆĄŚĘŁÓŃ]+)(,|(\s\\\)))",row)
     publisher_name.append(fill_data(buff))
 
 def re_no(row:str):
     buff = re.search("(?P<no>((nr|Nr)|(No|no)\.)\s\d{1,4})", row)
-    no.append(fill_data(buff))  # bez iss.
+    no.append(fill_data(buff))
+
 
 def re_publisher_year(row:str):
     buff = re.search("(?P<publisher_year>\d\d\d\d)", row)
     publisher_year.append(fill_data(buff))
 
+
 def re_vol(row:str):
     buff = re.search("(?P<vol>(vol|Vol)\.\s\d{1,3})", row)
     vol.append(fill_data(buff))
+
 
 def re_article_no(row:str):
     buff = re.search("(?P<article_no>[e]+\d\d\d\d\d)", row)
     article_no.append(fill_data(buff))
 
+
 def re_pages_in_range(row:str):
     buff = re.search("(?P<pages_in_range>(S\.|s\.)\s\d{1,9}[-]\d{1,9})", row)
     pages_in_range.append(fill_data(buff))
+
 
 def clear():
 
@@ -86,7 +92,7 @@ with open('details.csv', 'r', encoding="utf8") as file:
         re_vol(row[1])
         re_article_no(row[1])
         re_pages_in_range(row[1])
-
+    file.close()
 clear()
 
 with open(name_csv,"w",encoding="utf8",newline="\n") as file:
